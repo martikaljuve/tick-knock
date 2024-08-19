@@ -278,8 +278,8 @@ export class Engine {
    * @param {Class<T> | T} messageType - Message type (can be class or any instance, for example string or number)
    * @param {(value: T) => void} handler - Handler for the message
    */
-  public subscribe<T>(messageType: Class<T> | T, handler: (value: T) => void): void {
-    this.addSubscription(messageType, handler);
+  public subscribe<T>(messageType: Class<T> | T, handler: (value: T) => void): Subscription<T> {
+    return this.addSubscription(messageType, handler);
   }
 
   /**
